@@ -8,9 +8,11 @@ services:
     cap_add:
         - NET_ADMIN
     ports:
-        - 1194:1194/udp
+        - 9999:1194/udp
     environment:
         HOST_ADDR: ${HOST_ADDR} 
     volumes:
-        - ./openvpn_conf:/doc/Dockovpn
+        - ./openvpn_conf:/opt/Dockovpn_data
+        - ./config:/opt/Dockovpn/config
+        - ./config/server.conf:/etc/openvpn/server.conf
     restart: always
